@@ -66,7 +66,6 @@ func ResolveNoteName(note string) string {
 
 func NewScale(name, s_type string) *scale {
 	s := scale{name: name, scale_type: s_type}
-	s.full_name = s.name + s_type
 
 	// All the possible notes
 	notes := [12]string{"A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab"}
