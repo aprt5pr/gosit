@@ -2,7 +2,7 @@
 
 Learn the major and minor scale intervals in all 12 keys.
 
-# Usage
+### Usage
 
 ```
 package main
@@ -25,6 +25,6 @@ func main() {
 //&{C major [C D E F G A B C]} 
 ```
 
-# License
+### License
 
 This code is released under the MIT License. See [LICENSE](LICENSE).
