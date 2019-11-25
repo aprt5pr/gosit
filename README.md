@@ -8,8 +8,8 @@ Learn the major and minor scale intervals in all 12 keys.
 package main
 
 import (
-        "github.com/aprt5pr/gosit"
-        "fmt"
+    "github.com/aprt5pr/gosit"
+    "fmt"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func main() {
     }
 }
 
-//&{C major [C D E F G A B C]} 
+// &{C major [C D E F G A B C]} 
 ```
 
 ### License
