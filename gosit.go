@@ -3,8 +3,8 @@ package gosit
 import "strings"
 
 type scale struct {
-	name, scale_type, full_name string
-	notes                       [8]string
+	name, scale_type string
+	notes            [8]string
 }
 
 func IsValidNoteName(note string) bool {
