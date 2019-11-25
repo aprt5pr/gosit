@@ -1,6 +1,5 @@
 package gosit
 
-import "fmt"
 import "strings"
 
 type scale struct {
