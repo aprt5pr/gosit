@@ -77,8 +77,29 @@ func NewScale(name, s_type string) *scale {
 			// Step sizes in the major scale relative to root tone
 			// +1 == half step
 			// +2 == whole step
-			// whole, whole, half, whole, whole, whole
-			scale_steps := [6]int{2, 4, 5, 7, 9, 11}
+			scale_steps := [6]int{}
+			switch s.scale_type {
+			case "major", "M":
+				// Major
+				// whole, whole, half, whole, whole, whole, (half)
+				scale_steps = [6]int{2, 4, 5, 7, 9, 11}
+			case "naturalminor", "m":
+				// Natural minor
+				// whole, half, whole, whole, half, whole, (whole)
+				scale_steps = [6]int{2, 3, 5, 7, 8, 10}
+			case "melodicminor":
+				// Melodic minor
+				// whole, half, whole, whole, whole, whole, (half)
+				scale_steps = [6]int{2, 3, 5, 7, 9, 11}
+			case "harmonicminor":
+				// Harmonic minor
+				// whole, half, whole, whole, half, whole + half, (half)
+				scale_steps = [6]int{2, 3, 5, 7, 8, 11}
+			default:
+				// Major
+				// whole, whole, half, whole, whole, whole, (half)
+				scale_steps = [6]int{2, 4, 5, 7, 9, 11}
+			}
 
 			// Find tones 2 thru 7 i.e. elements 1 thru 6 in `notes` array
 			for step_idx := range scale_steps {
