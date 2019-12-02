@@ -1,4 +1,4 @@
-# WIP: Go Scale Interval Trainer (gosit)
+# Go Scale Interval Trainer (gosit)
 
 Learn the major and minor scale intervals in all 12 keys.
 
@@ -10,8 +10,8 @@ Learn the major and minor scale intervals in all 12 keys.
 package main
 
 import (
-    "github.com/aprt5pr/gosit"
     "fmt"
+    "github.com/aprt5pr/gosit"
 )
 
 func main() {
