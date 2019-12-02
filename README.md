@@ -2,6 +2,8 @@
 
 Learn the major and minor scale intervals in all 12 keys.
 
+[![Build Status](https://travis-ci.org/aprt5pr/gosit.svg?branch=master)](https://travis-ci.org/aprt5pr/gosit)
+
 ### Usage
 
 ```
