@@ -1,8 +1,8 @@
 package gosit
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestIsValidNoteName(t *testing.T) {
@@ -28,5 +28,25 @@ func TestIsValidNoteName(t *testing.T) {
 
 	for _, test := range tests {
 		assert.Equal(IsValidNoteName(test.input), test.expected)
+	}
+}
+
+func TestResolveNoteName(t *testing.T) {
+	assert := assert.New(t)
+
+	var tests = []struct {
+		input    string
+		expected string
+	}{
+		{"a", "A"},
+		{"A", "A"},
+		{"a#", "A#/Bb"},
+		{"ab", "G#/Ab"},
+	}
+
+	for _, test := range tests {
+		res, err := ResolveNoteName(test.input)
+		assert.Equal(err, nil)
+		assert.Equal(res, test.expected)
 	}
 }

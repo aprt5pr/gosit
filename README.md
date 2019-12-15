@@ -17,7 +17,7 @@ import (
 func main() {
     mynote := "C"
     if gosit.IsValidNoteName(mynote) {
-      note := gosit.ResolveNoteName(mynote)
+      note, err := gosit.ResolveNoteName(mynote)
       fmt.Println(gosit.NewScale(note, "major"))
     } else {
       fmt.Println(mynote, "is not a valid note name")

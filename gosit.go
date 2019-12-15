@@ -1,6 +1,9 @@
 package gosit
 
-import "strings"
+import (
+	"errors"
+	"strings"
+)
 
 type scale struct {
 	name, scale_type string
@@ -19,10 +22,10 @@ func IsValidNoteName(note string) bool {
 	return false
 }
 
-func ResolveNoteName(note string) string {
-	// If note doesn't have a sign - assuem natural
+func ResolveNoteName(note string) (string, error) {
+	// If note doesn't have a sign - assume natural
 	if len(note) == 1 {
-		return strings.ToUpper(note)
+		return strings.ToUpper(note), nil
 	} else if len(note) == 2 {
 		valid_signs := [2]string{"#", "b"}
 		sign := string(note[1])
@@ -32,36 +35,36 @@ func ResolveNoteName(note string) string {
 			}
 			// Reached end of array with no match
 			if idx == 1 {
-				return "?"
+				return "?", errors.New("invalid pitch")
 			}
 		}
 		// e.g. c-sharp is also d-flat
 		switch strings.ToLower(note) {
 		case "a#":
-			return "A#/Bb"
+			return "A#/Bb", nil
 		case "bb":
-			return "A#/Bb"
+			return "A#/Bb", nil
 		case "c#":
-			return "C#/Db"
+			return "C#/Db", nil
 		case "db":
-			return "C#/Db"
+			return "C#/Db", nil
 		case "d#":
-			return "D#/Eb"
+			return "D#/Eb", nil
 		case "eb":
-			return "D#/Eb"
+			return "D#/Eb", nil
 		case "f#":
-			return "F#/Gb"
+			return "F#/Gb", nil
 		case "gb":
-			return "F#/Gb"
+			return "F#/Gb", nil
 		case "g#":
-			return "G#/Ab"
+			return "G#/Ab", nil
 		case "ab":
-			return "G#/Ab"
+			return "G#/Ab", nil
 		}
 	} else {
-		return "?"
+		return "?", errors.New("note name too long")
 	}
-	return "?"
+	return "?", errors.New("unexpected error")
 }
 
 func NewScale(name, s_type string) *scale {
